@@ -1,0 +1,18 @@
+{
+  "name": "eslint-config-oharagroup",
+  "version": "1.0.0",
+  "description": "O'Hara Group JS style guide",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig"
+  ],
+  "author": "Scott O'Hara <scott@oharagroup.net>",
+  "license": "MIT",
+  "peerDependencies": {
+    "eslint": ">=3.8.1"
+  }
+}
