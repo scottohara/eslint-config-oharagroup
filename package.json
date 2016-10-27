@@ -10,8 +10,16 @@
     "eslint",
     "eslintconfig"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/scottohara/eslint-config-oharagroup.git"
+  },
   "author": "Scott O'Hara <scott@oharagroup.net>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scottohara/eslint-config-oharagroup/issues"
+  },
+  "homepage": "https://github.com/scottohara/eslint-config-oharagroup",
   "peerDependencies": {
     "eslint": ">=3.8.1"
   }
