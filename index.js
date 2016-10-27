@@ -17,13 +17,13 @@ module.exports = {
 		"es6": true,
 		"worker": false,
 		"amd": false,
-		"mocha": true,
+		"mocha": false,
 		"jasmine": false,
 		"jest": false,
 		"phantomjs": false,
-		"protractor": true,
+		"protractor": false,
 		"qunit": false,
-		"jquery": true,
+		"jquery": false,
 		"prototypejs": false,
 		"shelljs": false,
 		"meteor": false,
@@ -37,8 +37,6 @@ module.exports = {
 		"greasemonkey": false
 	},
 	"globals": {
-		"angular": false,
-		"moment": false
 	},
 	"parser": "espree",
 	"rules": {
