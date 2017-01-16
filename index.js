@@ -1,7 +1,7 @@
 module.exports = {
 	"parserOptions": {
 		"ecmaVersion": 2017,
-		"sourceType": "script",
+		"sourceType": "module",
 		"ecmaFeatures": {
 			"globalReturn": false,
 			"impliedStrict": true,
