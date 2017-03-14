@@ -41,13 +41,8 @@ module.exports = {
 	"parser": "espree",
 	"rules": {
 		// Possible errors
-		"comma-dangle": ["error", {
-			"arrays": "never",
-			"objects": "never",
-			"imports": "never",
-			"exports": "never",
-			"functions": "never"
-		}],
+		"no-await-in-loop": "error",
+		"no-compare-neg-zero": "error",
 		"no-cond-assign": ["error", "always"],
 		"no-console": ["error", {
 			"allow": ["error"]
@@ -69,7 +64,8 @@ module.exports = {
 		"no-extra-parens": ["error", "all", {
 			"conditionalAssign": true,
 			"returnAssign": false,												// Prevent conflict with no-return-assign
-			"nestedBinaryExpressions": false
+			"nestedBinaryExpressions": false,
+			"ignoreJSX": "none"
 		}],
 		"no-extra-semi": "error",
 		"no-func-assign": "error",
@@ -83,7 +79,6 @@ module.exports = {
 			"skipRegExps": false,
 			"skipTemplates": false
 		}],
-		"no-negated-in-lhs": "error",
 		"no-obj-calls": "error",
 		"no-prototype-builtins": "error",
 		"no-regex-spaces": "error",
@@ -180,7 +175,6 @@ module.exports = {
 			}
 		}],
 		"no-multi-str": "error",
-		"no-native-reassign": "error",
 		"no-new": "error",
 		"no-new-func": "error",
 		"no-new-wrappers": "error",
@@ -189,13 +183,13 @@ module.exports = {
 		"no-param-reassign": ["error", {
 			"props": false
 		}],
-		"no-process-env": "error",
 		"no-proto": "error",
 		"no-redeclare": ["error", {
 			"builtinGlobals": true
 		}],
 		"no-restricted-properties": "off",							// Not using
 		"no-return-assign": ["error", "except-parens"],
+		"no-return-await": "error",
 		"no-script-url": "error",
 		"no-self-assign": ["error", {
 			"props": true
@@ -212,13 +206,18 @@ module.exports = {
 		"no-useless-call": "error",
 		"no-useless-concat": "error",
 		"no-useless-escape": "error",
+		"no-useless-return": "error",
 		"no-void": "error",
 		"no-warning-comments": ["error", {
 			"terms": ["todo"],
 			"location": "anywhere"
 		}],
 		"no-with": "error",
+		"prefer-promise-reject-errors": ["error", {
+			"allowEmptyReject": false
+		}],
 		"radix": ["error", "as-needed"],
+		"require-await": "error",
 		"vars-on-top": "error",
 		"wrap-iife": ["error", "inside", {
 			"functionPrototypeMethods": true
@@ -252,13 +251,15 @@ module.exports = {
 			"vars": "all",
 			"varsIgnorePattern": "",
 			"args": "after-used",
+			"ignoreRestSiblings": false,
 			"argsIgnorePattern": "",
 			"caughtErrors": "all",
 			"caughtErrorsIgnorePattern": ""
 		}],
 		"no-use-before-define": ["error", {
 			"classes": true,
-			"functions": true
+			"functions": true,
+			"variables": true
 		}],
 
 		// Node.js - all disabled
@@ -268,9 +269,12 @@ module.exports = {
 		"no-mixed-requires": "off",
 		"no-new-require": "off",
 		"no-path-concat": "off",
+		"no-process-env": "error",
 		"no-process-exit": "off",
-		"no-restricted-imports": "off",
-		"no-restricted-modules": "off",
+		"no-restricted-modules": ["off", {
+			"paths": [],
+			"patterns": []
+		}],
 		"no-sync": "off",
 
 		// Stylistic issues
@@ -285,6 +289,25 @@ module.exports = {
 		}],
 		"camelcase": ["error", {
 			"properties": "never"
+		}],
+		"capitalized-comments": ["error", "always", {
+			"line": {
+				"ignorePattern": "",
+				"ignoreInlineComments": false,
+				"ignoreConsecutiveComments": true
+			},
+			"block": {
+				"ignorePattern": "",
+				"ignoreInlineComments": false,
+				"ignoreConsecutiveComments": true
+			}
+		}],
+		"comma-dangle": ["error", {
+			"arrays": "never",
+			"objects": "never",
+			"imports": "never",
+			"exports": "never",
+			"functions": "never"
 		}],
 		"comma-spacing": ["error", {
 			"before": false,
@@ -301,7 +324,7 @@ module.exports = {
 		"consistent-this": ["error", "self"],
 		"eol-last": ["off", "always"],										// Not using
 		"func-call-spacing": ["error", "never"],
-		"func-name-matching": ["error", {
+		"func-name-matching": ["error", "always", {
 			"includeCommonJSModuleExports": true
 		}],
 		"func-names": ["error", "always"],
@@ -334,7 +357,12 @@ module.exports = {
 			"FunctionExpression": {
 				"parameters": "first",
 				"body": 1
-			}
+			},
+			"CallExpression": {
+				"arguments": 1
+			},
+			"ArrayExpression": 1,
+			"ObjectExpression": 1
 		}],
 		"jsx-quotes": ["error", "prefer-double"],
 		"key-spacing": ["error", {
@@ -357,7 +385,7 @@ module.exports = {
 		"line-comment-position": ["error", {
 			"position": "above",
 			"ignorePattern": "",
-			"applyDefaultPatterns": true
+			"applyDefaultIgnorePatterns": true
 		}],
 		"linebreak-style": ["error", "unix"],
 		"lines-around-comment": ["error", {
@@ -370,7 +398,9 @@ module.exports = {
 			"allowObjectStart": true,
 			"allowObjectEnd": true,
 			"allowArrayStart": true,
-			"allowArrayEnd": true
+			"allowArrayEnd": true,
+			"ignorePattern": "",
+			"applyDefaultIgnorePatterns": true
 		}],
 		"lines-around-directive": ["error", {
 			"before": "always",
@@ -388,7 +418,8 @@ module.exports = {
 			"ignoreTrailingComments": false,
 			"ignoreUrls": false,
 			"ignoreStrings": false,
-			"ignoreTemplateLiterals": false
+			"ignoreTemplateLiterals": false,
+			"ignoreRegExpLiterals": false
 		}],
 		"max-lines": ["off", {													// Not using
 			"max": 300,
@@ -439,6 +470,7 @@ module.exports = {
 			"allowSamePrecedence": true
 		}],
 		"no-mixed-spaces-and-tabs": "error",
+		"no-multi-assign": "error",
 		"no-multiple-empty-lines": ["error", {
 			"max": 1,
 			"maxBOF": 1,
@@ -452,7 +484,6 @@ module.exports = {
 		}],
 		"no-restricted-syntax": ["error", "WithStatement"],
 		"no-tabs": "off",																// Not using
-		"no-spaced-func": "error",
 		"no-ternary": "off",														// Not using
 		"no-trailing-spaces": ["error", {
 			"skipBlankLines": false
@@ -464,6 +495,9 @@ module.exports = {
 		}],
 		"no-unneeded-ternary": "error",
 		"no-whitespace-before-property": "error",
+		"nonblock-statement-body-position": ["error", "beside", {
+			"overrides": {}
+		}],
 		"object-curly-newline": ["off", {								// Not using
 			"ObjectExpression": {
 				"multiline": true
@@ -502,13 +536,20 @@ module.exports = {
 			"avoidEscape": false,
 			"allowTemplateLiterals": false
 		}],
-		"require-jsdoc": "off",													// Not using
-		"semi-spacing": ["error", {
-			"before": false,
-			"after": true
+		"require-jsdoc": ["off", {											// Not using
+			"require": {
+				"FunctionDeclaration": true,
+				"MethodDefinition": false,
+				"ClassDeclaration": false,
+				"ArrowFunctionExpression": false
+			}
 		}],
 		"semi": ["error", "always", {
 			"omitLastInOneLineBlock": false
+		}],
+		"semi-spacing": ["error", {
+			"before": false,
+			"after": true
 		}],
 		"sort-keys": ["off", "asc", {
 			"caseSensitive": true,
@@ -549,6 +590,7 @@ module.exports = {
 				"balanced": true
 			}
 		}],
+		"template-tag-spacing": ["error", "never"],
 		"unicode-bom": ["error", "never"],
 		"wrap-regex": "error",
 
@@ -578,6 +620,10 @@ module.exports = {
 			"includeExports": true
 		}],
 		"no-new-symbol": "error",
+		"no-restricted-imports": ["off", {
+			"paths": [],
+			"patterns": []
+		}],
 		"no-this-before-super": "error",
 		"no-useless-computed-key": "error",
 		"no-useless-constructor": "error",
@@ -589,7 +635,8 @@ module.exports = {
 		"no-var": "error",
 		"object-shorthand": ["error", "always", {
 			"avoidQuotes": false,
-			"ignoreConstructors": false
+			"ignoreConstructors": false,
+			"avoidExplicitReturnArrows": true
 		}],
 		"prefer-arrow-callback": ["error", {
 			"allowNamedFunctions": false,
@@ -599,10 +646,13 @@ module.exports = {
 			"destructuring": "any",
 			"ignoreReadBeforeAssign": false
 		}],
-		"prefer-numeric-literals": "error",
-		"prefer-reflect": ["error", {
-			"exceptions": []
+		"prefer-destructuring": ["error", {
+			"array": true,
+			"object": true
+		}, {
+			"enforceForRenamedProperties": false
 		}],
+		"prefer-numeric-literals": "error",
 		"prefer-rest-params": "error",
 		"prefer-spread": "error",
 		"prefer-template": "error",
