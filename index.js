@@ -30,7 +30,7 @@ module.exports = {
 		"mongo": false,
 		"applescript": false,
 		"nashorn": false,
-		"serviceworker": false,													// sw-precache manages ServiceWorker code
+		"serviceworker": false,													// workbox-build manages ServiceWorker code
 		"atomtest": false,
 		"embertest": false,
 		"webextensions": false,
@@ -41,6 +41,10 @@ module.exports = {
 	"parser": "espree",
 	"rules": {
 		// Possible errors
+		"for-direction": "error",
+		"getter-return": ["error", {
+			"allowImplicit": false
+		}],
 		"no-await-in-loop": "error",
 		"no-compare-neg-zero": "error",
 		"no-cond-assign": ["error", "always"],
@@ -65,7 +69,8 @@ module.exports = {
 			"conditionalAssign": true,
 			"returnAssign": false,												// Prevent conflict with no-return-assign
 			"nestedBinaryExpressions": false,
-			"ignoreJSX": "none"
+			"ignoreJSX": "none",
+			"enforceForArrowConditionals": false
 		}],
 		"no-extra-semi": "error",
 		"no-func-assign": "error",
@@ -172,7 +177,8 @@ module.exports = {
 				"Property": false,
 				"VariableDeclaration": false,
 				"ImportDeclaration": false
-			}
+			},
+			"ignoreEOLComments": false
 		}],
 		"no-multi-str": "error",
 		"no-new": "error",
@@ -200,7 +206,8 @@ module.exports = {
 		"no-unmodified-loop-condition": "error",
 		"no-unused-expressions": ["error", {
 			"allowShortCircuit": false,
-			"allowTernary": false
+			"allowTernary": false,
+			"allowTaggedTemplates": false
 		}],
 		"no-unused-labels": "error",
 		"no-useless-call": "error",
@@ -266,6 +273,7 @@ module.exports = {
 		"callback-return": "off",
 		"global-require": "off",
 		"handle-callback-err": "off",
+		"no-buffer-constructor": "off",
 		"no-mixed-requires": "off",
 		"no-new-require": "off",
 		"no-path-concat": "off",
@@ -275,13 +283,23 @@ module.exports = {
 			"paths": [],
 			"patterns": []
 		}],
-		"no-sync": "off",
+		"no-sync": ["off", {
+			"allowAtRootLevel":	false
+		}],
 
 		// Stylistic issues
+		"array-bracket-newline": ["off", {							// Not using
+			"multiline": true,
+			"minItems": null
+		}],
 		"array-bracket-spacing": ["error", "never", {
 			"singleValue": false,
 			"objectsInArrays": false,
 			"arraysInArrays": false
+		}],
+		"array-element-newline": ["off", 	{							// Not using
+			"multiline": true,
+			"minItems": null
 		}],
 		"block-spacing": ["error", "never"],
 		"brace-style": ["error", "1tbs", {
@@ -341,6 +359,7 @@ module.exports = {
 		"id-match": ["off", "^[a-z]+([A-Z][a-z]+)*$", {	// Not using (camelCase identifiers only)
 			"properties": false
 		}],
+		"indent-legacy": "off",													// Not using
 		"indent": ["error", "tab", {
 			"SwitchCase": 1,
 			"VariableDeclarator": {
@@ -362,7 +381,10 @@ module.exports = {
 				"arguments": 1
 			},
 			"ArrayExpression": 1,
-			"ObjectExpression": 1
+			"ObjectExpression": 1,
+			"ImportDeclaration": 1,
+			"flatTernaryExpressions": false,
+			"ignoredNodes": []
 		}],
 		"jsx-quotes": ["error", "prefer-double"],
 		"key-spacing": ["error", {
@@ -486,12 +508,14 @@ module.exports = {
 		"no-tabs": "off",																// Not using
 		"no-ternary": "off",														// Not using
 		"no-trailing-spaces": ["error", {
-			"skipBlankLines": false
+			"skipBlankLines": false,
+			"ignoreComments": false
 		}],
 		"no-underscore-dangle": ["error", {
 			"allow": [],
 			"allowAfterThis": false,
-			"allowAfterSuper": false
+			"allowAfterSuper": false,
+			"enforceInMethodNames": false
 		}],
 		"no-unneeded-ternary": "error",
 		"no-whitespace-before-property": "error",
@@ -527,6 +551,11 @@ module.exports = {
 			"classes": "never",
 			"switches": "never"
 		}],
+		"padding-line-between-statements": ["error", {
+			"blankLine": "any",
+			"prev": "*",
+			"next": "*"
+		}],
 		"quote-props": ["error", "as-needed", {
 			"keywords": false,
 			"unnecessary": true,
@@ -551,6 +580,7 @@ module.exports = {
 			"before": false,
 			"after": true
 		}],
+		"semi-style": ["error", "last"],
 		"sort-keys": ["off", "asc", {
 			"caseSensitive": true,
 			"natural": true
@@ -590,6 +620,10 @@ module.exports = {
 				"balanced": true
 			}
 		}],
+		"switch-colon-spacing": ["error", {
+			"after": true,
+			"before": false
+		}],
 		"template-tag-spacing": ["error", "never"],
 		"unicode-bom": ["error", "never"],
 		"wrap-regex": "error",
@@ -612,7 +646,7 @@ module.exports = {
 		}],
 		"no-class-assign": "error",
 		"no-confusing-arrow": ["error", {
-			"allowParens": false
+			"allowParens": true
 		}],
 		"no-const-assign": "error",
 		"no-dupe-class-members": "error",
@@ -647,8 +681,14 @@ module.exports = {
 			"ignoreReadBeforeAssign": false
 		}],
 		"prefer-destructuring": ["error", {
-			"array": true,
-			"object": true
+			"VariableDeclarator": {
+				"array": true,
+				"object": true
+			},
+			"AssignmentExpression": {
+				"array": true,
+				"object": true
+			}
 		}, {
 			"enforceForRenamedProperties": false
 		}],
