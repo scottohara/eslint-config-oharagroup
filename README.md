@@ -16,7 +16,7 @@ O'Hara Group JS style guide
 
 1. Apply any rule changes to `index.js`
 2. Update the `eslint` version in `package.json`, and bump the package `version`
-3. Ensure that this package is registered for linking (`cd [this dir] && yarn link`)
-4. Test by going to a project that uses the shared config and `yarn link eslint-config-oharagroup`
-5. Publish the new version (`yarn publish`)
-6. Unlink the local version in the test project if necessary (`yarn unlink`)
+3. Ensure that this package is registered for linking (`cd [this dir] && npm link`)
+4. Test by going to a project that uses the shared config and `npm link eslint-config-oharagroup`
+5. Publish the new version (`npm publish`)
+6. Unlink the local version in the test project if necessary (`npm unlink`)
