@@ -130,7 +130,9 @@ module.exports = {
 		"no-caller": "error",
 		"no-case-declarations": "error",
 		"no-div-regex": "error",
-		"no-else-return": "error",
+		"no-else-return": ["error", {
+			"allowElseIf": true
+		}],
 		"no-empty-function": ["error", {
 			"allow": []
 		}],
@@ -288,10 +290,7 @@ module.exports = {
 		}],
 
 		// Stylistic issues
-		"array-bracket-newline": ["off", {							// Not using
-			"multiline": true,
-			"minItems": null
-		}],
+		"array-bracket-newline": ["error", "consistent"],
 		"array-bracket-spacing": ["error", "never", {
 			"singleValue": false,
 			"objectsInArrays": false,
@@ -349,6 +348,7 @@ module.exports = {
 		"func-style": ["error", "declaration", {
 			"allowArrowFunctions": false
 		}],
+		"function-paren-newline": ["error", "never"],
 		"id-blacklist": "error",
 		"id-length": ["error", {
 			"min": 1,
@@ -359,7 +359,7 @@ module.exports = {
 		"id-match": ["off", "^[a-z]+([A-Z][a-z]+)*$", {	// Not using (camelCase identifiers only)
 			"properties": false
 		}],
-		"indent-legacy": "off",													// Not using
+		"implicit-arrow-linebreak": ["error", "beside"],
 		"indent": ["error", "tab", {
 			"SwitchCase": 1,
 			"VariableDeclarator": {
@@ -421,12 +421,13 @@ module.exports = {
 			"allowObjectEnd": true,
 			"allowArrayStart": true,
 			"allowArrayEnd": true,
+			"allowClassStart": true,
+			"allowClassEnd": true,
 			"ignorePattern": "",
 			"applyDefaultIgnorePatterns": true
 		}],
-		"lines-around-directive": ["error", {
-			"before": "always",
-			"after": "always"
+		"lines-between-class-members": ["error", "always", {
+			"exceptAfterSingleLine": false
 		}],
 		"max-depth": ["off", {													// Not using
 			"max": 4
@@ -465,6 +466,7 @@ module.exports = {
 		"max-statements-per-line": ["error", {
 			"max": 1
 		}],
+		"multiline-comment-style": ["error", "starred-block"],
 		"multiline-ternary": ["error", "never"],
 		"new-cap": ["error", {
 			"newIsCap": true,
@@ -475,8 +477,6 @@ module.exports = {
 			"capIsNewExceptionPattern": ""
 		}],
 		"new-parens": "error",
-		"newline-after-var": ["error", "always"],
-		"newline-before-return": "error",
 		"newline-per-chained-call": ["off", {						// Not using (gulp pipelines)
 			"ignoreChainWithDepth": 10
 		}],
@@ -570,7 +570,8 @@ module.exports = {
 				"FunctionDeclaration": true,
 				"MethodDefinition": false,
 				"ClassDeclaration": false,
-				"ArrowFunctionExpression": false
+				"ArrowFunctionExpression": false,
+				"FunctionExpression": false
 			}
 		}],
 		"semi": ["error", "always", {
@@ -642,7 +643,19 @@ module.exports = {
 		"constructor-super": "error",
 		"generator-star-spacing": ["error", {
 			"before": true,
-			"after": false
+			"after": false,
+			"named": {
+				"before": true,
+				"after": false
+			},
+			"anonymous": {
+				"before": true,
+				"after": false
+			},
+			"method": {
+				"before": true,
+				"after": false
+			}
 		}],
 		"no-class-assign": "error",
 		"no-confusing-arrow": ["error", {
@@ -708,6 +721,15 @@ module.exports = {
 		"yield-star-spacing": ["error", {
 			"before": true,
 			"after": false
-		}]
+		}],
+
+		// Deprecated
+		"indent-legacy": "off",													// Not using
+		"lines-around-directive": ["error", {
+			"before": "always",
+			"after": "always"
+		}],
+		"newline-after-var": ["error", "always"],
+		"newline-before-return": "error"
 	}
 };
