@@ -5,8 +5,7 @@ module.exports = {
 		"ecmaFeatures": {
 			"globalReturn": false,
 			"impliedStrict": true,
-			"jsx": false,																	// Not using (React/JSX)
-			"experimentalObjectRestSpread": false					// Not using (experimental)
+			"jsx": false																	// Not using (React/JSX)
 		}
 	},
 	"env": {
