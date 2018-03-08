@@ -1,6 +1,6 @@
 module.exports = {
 	"parserOptions": {
-		"ecmaVersion": 2017,
+		"ecmaVersion": 2018,
 		"sourceType": "module",
 		"ecmaFeatures": {
 			"globalReturn": false,
@@ -103,7 +103,9 @@ module.exports = {
 		"accessor-pairs": ["error", {
 			"getWithoutSet": true
 		}],
-		"array-callback-return": "error",
+		"array-callback-return": ["error", {
+			"allowImplicit": false
+		}],
 		"block-scoped-var": "error",
 		"class-methods-use-this": ["off",	{							// Not using
 			"exceptMethods": []
@@ -384,7 +386,8 @@ module.exports = {
 			"ObjectExpression": 1,
 			"ImportDeclaration": 1,
 			"flatTernaryExpressions": false,
-			"ignoredNodes": []
+			"ignoredNodes": [],
+			"ignoreComments": false
 		}],
 		"jsx-quotes": ["error", "prefer-double"],
 		"key-spacing": ["error", {
@@ -524,22 +527,34 @@ module.exports = {
 		}],
 		"object-curly-newline": ["off", {								// Not using
 			"ObjectExpression": {
-				"multiline": true
+				"multiline": true,
+				"consistent": true
 			},
 			"ObjectPattern": {
-				"multiline": true
+				"multiline": true,
+				"consistent": true
+			},
+			"ImportDeclaration": {
+				"multiline": true,
+				"minProperties": 2,
+				"consistent": true
+			},
+			"ExportDeclaration": {
+				"multiline": true,
+				"consistent": true
 			}
 		}],
 		"object-curly-spacing": ["error", "never", {
 			"objectsInObjects": false
 		}],
 		"object-property-newline": ["error", {
-			"allowMultiplePropertiesPerLine": true
+			"allowAllPropertiesOnSameLine": true
 		}],
 		"one-var": ["error", {
 			"var": "always",
 			"let": "always",
-			"const": "always"
+			"const": "always",
+			"separateRequires": true
 		}],
 		"one-var-declaration-per-line": ["error", "initializations"],
 		"operator-assignment": ["error", "always"],
