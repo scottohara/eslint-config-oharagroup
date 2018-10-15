@@ -37,7 +37,10 @@ module.exports = {
 	},
 	"globals": {
 	},
-	"parser": "espree",
+	"parser": "typescript-eslint-parser",
+	"plugins": [
+		"typescript"
+	],
 	"rules": {
 		// Possible errors
 		"for-direction": "error",
@@ -64,7 +67,7 @@ module.exports = {
 		"no-empty-character-class": "error",
 		"no-ex-assign": "error",
 		"no-extra-boolean-cast": "error",
-		"no-extra-parens": ["error", "all", {
+		"no-extra-parens": ["off", "all", {							// Disabled for Typescript type guards (e.g. ((<Foo>this).bar) => {...})
 			"conditionalAssign": true,
 			"returnAssign": false,												// Prevent conflict with no-return-assign
 			"nestedBinaryExpressions": false,
@@ -127,6 +130,7 @@ module.exports = {
 			"null": "always"
 		}],
 		"guard-for-in": "error",
+		"max-classes-per-file": ["error", 1],
 		"no-alert": "error",
 		"no-caller": "error",
 		"no-case-declarations": "error",
@@ -134,7 +138,7 @@ module.exports = {
 		"no-else-return": ["error", {
 			"allowElseIf": true
 		}],
-		"no-empty-function": ["error", {
+		"no-empty-function": ["off", {								// Disabled for concise Typescript constructors
 			"allow": []
 		}],
 		"no-empty-pattern": "error",
@@ -242,7 +246,6 @@ module.exports = {
 
 		// Variables
 		"init-declarations": "off",											// Not using
-		"no-catch-shadow": "off",												// Not using (IE8 not supported)
 		"no-delete-var": "error",
 		"no-label-var": "error",
 		"no-restricted-globals": "off",									// Not using
@@ -252,12 +255,12 @@ module.exports = {
 			"allow": []
 		}],
 		"no-shadow-restricted-names": "error",
-		"no-undef": ["error", {
+		"no-undef": ["off", {														// Disabled for Typescript private class properties
 			"typeof": true
 		}],
 		"no-undef-init": "error",
 		"no-undefined": "error",
-		"no-unused-vars": ["error", {
+		"no-unused-vars": ["off", {											// Disabled for Typescript shorthand constructor params
 			"vars": "all",
 			"varsIgnorePattern": "",
 			"args": "after-used",
@@ -306,7 +309,8 @@ module.exports = {
 			"allowSingleLine": false
 		}],
 		"camelcase": ["error", {
-			"properties": "never"
+			"properties": "never",
+			"ignoreDestructuring": false
 		}],
 		"capitalized-comments": ["error", "always", {
 			"line": {
@@ -343,6 +347,7 @@ module.exports = {
 		"eol-last": ["off", "always"],										// Not using
 		"func-call-spacing": ["error", "never"],
 		"func-name-matching": ["error", "always", {
+			"considerPropertyDescriptor": false,
 			"includeCommonJSModuleExports": true
 		}],
 		"func-names": ["error", "always"],
@@ -451,6 +456,12 @@ module.exports = {
 			"skipBlankLines": true,
 			"skipComments": true
 		}],
+		"max-lines-per-function": ["off", {							// Not using
+			"max": 50,
+			"skipBlankLines": false,
+			"skipComments": false,
+			"IIFEs": false
+		}],
 		"max-nested-callbacks": ["error", {
 			"max": 10
 		}],
@@ -479,8 +490,8 @@ module.exports = {
 			"capIsNewExceptionPattern": ""
 		}],
 		"new-parens": "error",
-		"newline-per-chained-call": ["off", {						// Not using (gulp pipelines)
-			"ignoreChainWithDepth": 10
+		"newline-per-chained-call": ["error", {
+			"ignoreChainWithDepth": 4
 		}],
 		"no-array-constructor": "error",
 		"no-bitwise": ["error", {
@@ -570,6 +581,7 @@ module.exports = {
 			"prev": "*",
 			"next": "*"
 		}],
+		"prefer-object-spread": "error",
 		"quote-props": ["error", "as-needed", {
 			"keywords": false,
 			"unnecessary": true,
@@ -687,7 +699,7 @@ module.exports = {
 		}],
 		"no-this-before-super": "error",
 		"no-useless-computed-key": "error",
-		"no-useless-constructor": "error",
+		"no-useless-constructor": "off",								// Disabled for Typscript concise constructors
 		"no-useless-rename": ["error", {
 			"ignoreDestructuring": false,
 			"ignoreImport": false,
@@ -744,6 +756,79 @@ module.exports = {
 			"after": "always"
 		}],
 		"newline-after-var": ["error", "always"],
-		"newline-before-return": "error"
+		"newline-before-return": "error",
+		"no-catch-shadow": "off",												// Not using (IE8 not supported)
+
+		// Typescript
+		"typescript/adjacent-overload-signatures": "error",
+		"typescript/class-name-casing": "error",
+		"typescript/explicit-function-return-type": "error",
+		"typescript/explicit-member-accessibility": "error",
+		"typescript/interface-name-prefix": ["error", "never"],
+		"typescript/member-delimiter-style": ["error", {
+			"delimiter": "semi",
+			"requireLast": true,
+			"ignoreSingleLine": true,
+			"overrides": {
+				"interface": {},
+				"typeLiteral": {}
+			}
+		}],
+		"typescript/member-naming": "off",
+		"typescript/member-ordering": "error",
+		"typescript/no-angle-bracket-type-assertion": "error",
+		"typescript/no-array-constructor": "error",
+		"typescript/no-empty-interface": "error",
+		"typescript/no-explicit-any": "error",
+		"typescript/no-inferrable-types": ["error", {
+			"ignoreProperties": false,
+			"ignoreParameters": false
+		}],
+		"typescript/no-namespace": ["error", {
+			"allowDeclarations": false,
+			"allowDefinitionFiles": false
+		}],
+		"typescript/no-non-null-assertion": "error",
+		"typescript/no-parameter-properties": ["off", {
+			"allows": [
+				"readonly",
+				"private",
+				"protected",
+				"public",
+				"private readonly",
+				"protected readonly",
+				"public readonly"
+			]
+		}],
+		"typescript/no-triple-slash-reference": "error",
+		"typescript/no-type-alias": ["off", {						// Temporarily disabled (see https://github.com/nzakas/eslint-plugin-typescript/pull/137)
+			"allowAliases": "in-unions-and-intersections",
+			"allowCallbacks": true,
+			"allowLiterals": "in-unions-and-intersections",
+			"allowMappedTypes": "in-unions-and-intersections"
+		}],
+		"typescript/no-unused-vars": "error",
+		"typescript/no-use-before-define": ["error", {
+			"functions": true,
+			"classes": true,
+			"variables": true,
+			"typedefs": true
+		}],
+		"typescript/no-var-requires": "off",						// Disabled until node supports ES modules
+		"typescript/prefer-namespace-keyword": "error",
+		"typescript/type-annotation-spacing": ["error", {
+			"before": false,
+			"after": true,
+			"overrides": {
+				"colon": {
+					"before": false,
+					"after": true
+				},
+				"arrow": {
+					"before": true,
+					"after": true
+				}
+			}
+		}]
 	}
 };
