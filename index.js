@@ -47,6 +47,7 @@ module.exports = {
 		"getter-return": ["error", {
 			"allowImplicit": false
 		}],
+		"no-async-promise-executor": "error",
 		"no-await-in-loop": "error",
 		"no-compare-neg-zero": "error",
 		"no-cond-assign": ["error", "always"],
@@ -86,6 +87,7 @@ module.exports = {
 			"skipRegExps": false,
 			"skipTemplates": false
 		}],
+		"no-misleading-character-class": "error",
 		"no-obj-calls": "error",
 		"no-prototype-builtins": "error",
 		"no-regex-spaces": "error",
@@ -95,6 +97,7 @@ module.exports = {
 		"no-unreachable": "error",
 		"no-unsafe-finally": "error",
 		"no-unsafe-negation": "error",
+		"require-atomic-updates": "error",
 		"use-isnan": "error",
 		"valid-jsdoc": "off",														// TODO: Many options to configure JSDoc style
 		"valid-typeof": ["error", {
@@ -232,6 +235,7 @@ module.exports = {
 		}],
 		"radix": ["error", "as-needed"],
 		"require-await": "error",
+		"require-unicode-regexp": "error",
 		"vars-on-top": "error",
 		"wrap-iife": ["error", "inside", {
 			"functionPrototypeMethods": true
@@ -310,7 +314,8 @@ module.exports = {
 		}],
 		"camelcase": ["error", {
 			"properties": "never",
-			"ignoreDestructuring": false
+			"ignoreDestructuring": false,
+			"allow": []
 		}],
 		"capitalized-comments": ["error", "always", {
 			"line": {
@@ -350,7 +355,9 @@ module.exports = {
 			"considerPropertyDescriptor": false,
 			"includeCommonJSModuleExports": true
 		}],
-		"func-names": ["error", "always"],
+		"func-names": ["error", "always", {
+			"generators": "always"
+		}],
 		"func-style": ["error", "declaration", {
 			"allowArrowFunctions": false
 		}],
@@ -518,7 +525,9 @@ module.exports = {
 			"allowForLoopAfterthoughts": true
 		}],
 		"no-restricted-syntax": ["error", "WithStatement"],
-		"no-tabs": "off",																// Not using
+		"no-tabs": ["off", {														// Not using
+			"allowIndentationTab": false
+		}],
 		"no-ternary": "off",														// Not using
 		"no-trailing-spaces": ["error", {
 			"skipBlankLines": false,
