@@ -1,12 +1,14 @@
 module.exports = {
 	"parserOptions": {
-		"ecmaVersion": 2018,
+		"ecmaVersion": 2019,
 		"sourceType": "module",
 		"ecmaFeatures": {
 			"globalReturn": false,
 			"impliedStrict": true,
 			"jsx": false																	// Not using (React/JSX)
-		}
+		},
+		"project": "./tsconfig.json",
+		"tsconfigRootDir": ".",
 	},
 	"env": {
 		"browser": true,
@@ -37,9 +39,9 @@ module.exports = {
 	},
 	"globals": {
 	},
-	"parser": "typescript-eslint-parser",
+	"parser": "@typescript-eslint/parser",
 	"plugins": [
-		"typescript"
+		"@typescript-eslint"
 	],
 	"rules": {
 		// Possible errors
@@ -68,7 +70,7 @@ module.exports = {
 		"no-empty-character-class": "error",
 		"no-ex-assign": "error",
 		"no-extra-boolean-cast": "error",
-		"no-extra-parens": ["off", "all", {							// Disabled for Typescript type guards (e.g. ((<Foo>this).bar) => {...})
+		"no-extra-parens": ["off", "all", {							// Disabled in favour of @typescript-eslint/no-extra-parens rule
 			"conditionalAssign": true,
 			"returnAssign": false,												// Prevent conflict with no-return-assign
 			"nestedBinaryExpressions": false,
@@ -99,13 +101,13 @@ module.exports = {
 		"no-unsafe-negation": "error",
 		"require-atomic-updates": "error",
 		"use-isnan": "error",
-		"valid-jsdoc": "off",														// TODO: Many options to configure JSDoc style
 		"valid-typeof": ["error", {
 			"requireStringLiterals": true
 		}],
 
 		// Best practices
 		"accessor-pairs": ["error", {
+			"setWithoutGet": true,
 			"getWithoutSet": true
 		}],
 		"array-callback-return": ["error", {
@@ -141,7 +143,7 @@ module.exports = {
 		"no-else-return": ["error", {
 			"allowElseIf": true
 		}],
-		"no-empty-function": ["off", {								// Disabled for concise Typescript constructors
+		"no-empty-function": ["off", {									// Disabled for concise Typescript constructors
 			"allow": []
 		}],
 		"no-empty-pattern": "error",
@@ -175,7 +177,7 @@ module.exports = {
 		}],
 		"no-lone-blocks": "error",
 		"no-loop-func": "error",
-		"no-magic-numbers": ["error", {
+		"no-magic-numbers": ["off", {										// Disabled in favour of @typescript-eslint/no-magic-numbers rule
 			"ignore": [-1, 0, 1],
 			"ignoreArrayIndexes": true,
 			"enforceConst": true,
@@ -221,6 +223,7 @@ module.exports = {
 		}],
 		"no-unused-labels": "error",
 		"no-useless-call": "error",
+		"no-useless-catch": "error",
 		"no-useless-concat": "error",
 		"no-useless-escape": "error",
 		"no-useless-return": "error",
@@ -230,6 +233,7 @@ module.exports = {
 			"location": "anywhere"
 		}],
 		"no-with": "error",
+		"prefer-named-capture-group": "error",
 		"prefer-promise-reject-errors": ["error", {
 			"allowEmptyReject": false
 		}],
@@ -259,19 +263,19 @@ module.exports = {
 			"allow": []
 		}],
 		"no-shadow-restricted-names": "error",
-		"no-undef": ["off", {														// Disabled for Typescript private class properties
+		"no-undef": ["error", {
 			"typeof": true
 		}],
 		"no-undef-init": "error",
 		"no-undefined": "error",
-		"no-unused-vars": ["off", {											// Disabled for Typescript shorthand constructor params
+		"no-unused-vars": ["error", {
 			"vars": "all",
 			"varsIgnorePattern": "",
 			"args": "after-used",
 			"ignoreRestSiblings": false,
 			"argsIgnorePattern": "",
 			"caughtErrors": "all",
-			"caughtErrorsIgnorePattern": ""
+			"caughtErrorsIgnorePattern": "^_"
 		}],
 		"no-use-before-define": ["error", {
 			"classes": true,
@@ -350,7 +354,7 @@ module.exports = {
 		"computed-property-spacing": ["error", "never"],
 		"consistent-this": ["error", "self"],
 		"eol-last": ["off", "always"],										// Not using
-		"func-call-spacing": ["error", "never"],
+		"func-call-spacing": ["off", "never"],						// Disabled in favour of @typescript-eslint/func-call-spacing rule
 		"func-name-matching": ["error", "always", {
 			"considerPropertyDescriptor": false,
 			"includeCommonJSModuleExports": true
@@ -370,14 +374,16 @@ module.exports = {
 			"exceptions": []
 		}],
 		"id-match": ["off", "^[a-z]+([A-Z][a-z]+)*$", {	// Not using (camelCase identifiers only)
-			"properties": false
+			"properties": false,
+			"onlyDeclarations": false,
+			"ignoreDestructuring": false
 		}],
 		"implicit-arrow-linebreak": ["error", "beside"],
-		"indent": ["error", "tab", {
+		"indent": ["off", "tab", {											// Disabled in favour of @typescript-eslint/indent rule
 			"SwitchCase": 1,
 			"VariableDeclarator": {
 				"var": 2,
-				"let": 2	,
+				"let": 2,
 				"const": 3
 			},
 			"outerIIFEBody": 1,
@@ -564,6 +570,7 @@ module.exports = {
 			}
 		}],
 		"object-curly-spacing": ["error", "never", {
+			"arraysInObjects": false,
 			"objectsInObjects": false
 		}],
 		"object-property-newline": ["error", {
@@ -584,6 +591,8 @@ module.exports = {
 			"blocks": "never",
 			"classes": "never",
 			"switches": "never"
+		}, {
+			"allowSingleLineBlocks": true
 		}],
 		"padding-line-between-statements": ["error", {
 			"blankLine": "any",
@@ -600,16 +609,7 @@ module.exports = {
 			"avoidEscape": false,
 			"allowTemplateLiterals": false
 		}],
-		"require-jsdoc": ["off", {											// Not using
-			"require": {
-				"FunctionDeclaration": true,
-				"MethodDefinition": false,
-				"ClassDeclaration": false,
-				"ArrowFunctionExpression": false,
-				"FunctionExpression": false
-			}
-		}],
-		"semi": ["error", "always", {
+		"semi": ["off", "always", {											// Disabled in favour of @typescript-eslint/semi rule
 			"omitLastInOneLineBlock": false
 		}],
 		"semi-spacing": ["error", {
@@ -708,7 +708,7 @@ module.exports = {
 		}],
 		"no-this-before-super": "error",
 		"no-useless-computed-key": "error",
-		"no-useless-constructor": "off",								// Disabled for Typscript concise constructors
+		"no-useless-constructor": "off",								// Disabled in favour of @typescript-eslint/no-useless-constructor
 		"no-useless-rename": ["error", {
 			"ignoreDestructuring": false,
 			"ignoreImport": false,
@@ -748,6 +748,7 @@ module.exports = {
 		"rest-spread-spacing": ["error", "never"],
 		"sort-imports": ["error", {
 			"ignoreCase": false,
+			"ignoreDeclarationSort": false,
 			"ignoreMemberSort": false,
 			"memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
 		}],
@@ -759,46 +760,150 @@ module.exports = {
 		}],
 
 		// Deprecated
-		"indent-legacy": "off",													// Not using
+		"indent-legacy": "off",
 		"lines-around-directive": ["error", {
 			"before": "always",
 			"after": "always"
 		}],
 		"newline-after-var": ["error", "always"],
 		"newline-before-return": "error",
-		"no-catch-shadow": "off",												// Not using (IE8 not supported)
+		"no-catch-shadow": "off",
+		"require-jsdoc": ["off", {
+			"require": {
+				"FunctionDeclaration": true,
+				"MethodDefinition": false,
+				"ClassDeclaration": false,
+				"ArrowFunctionExpression": false,
+				"FunctionExpression": false
+			}
+		}],
+		"valid-jsdoc": "off",
 
 		// Typescript
-		"typescript/adjacent-overload-signatures": "error",
-		"typescript/class-name-casing": "error",
-		"typescript/explicit-function-return-type": "error",
-		"typescript/explicit-member-accessibility": "error",
-		"typescript/interface-name-prefix": ["error", "never"],
-		"typescript/member-delimiter-style": ["error", {
-			"delimiter": "semi",
-			"requireLast": true,
-			"ignoreSingleLine": true,
+		"@typescript-eslint/adjacent-overload-signatures": "error",
+		"@typescript-eslint/array-type": ["error", "array"],
+		"@typescript-eslint/await-thenable": "error",
+		"@typescript-eslint/ban-ts-ignore": "error",
+		"@typescript-eslint/ban-types": ["error", {
+			"types": {
+				"Array": "Use [] instead",
+				"Object": "Use {} instead",
+				"String": {
+					"message": "Use string instead",
+					"fixWith": "string"
+				}
+			}
+		}],
+		"@typescript-eslint/camelcase": ["error", {
+			"properties": "never",
+			"ignoreDestructuring": false,
+			"allow": []
+		}],
+		"@typescript-eslint/class-name-casing": "error",
+		"@typescript-eslint/explicit-function-return-type": ["error", {
+			"allowExpressions": false,
+			"allowTypedFunctionExpressions": false
+		}],
+		"@typescript-eslint/explicit-member-accessibility": ["error", {
+			"accessibility": "explicit",
+			"overrides": {
+				"accessors": "explicit",
+				"constructors": "explicit",
+				"methods": "explicit",
+				"properties": "explicit",
+				"parameterProperties": "explicit"
+			}
+		}],
+		"@typescript-eslint/func-call-spacing": ["error", "never"],
+		"@typescript-eslint/generic-type-naming": "off",	// not using
+		"@typescript-eslint/indent": ["error", "tab", {
+			"SwitchCase": 1,
+			"VariableDeclarator": {
+				"var": 2,
+				"let": 2,
+				"const": 3
+			},
+			"outerIIFEBody": 1,
+			"MemberExpression": 1,
+			"FunctionDeclaration": {
+				"parameters": 5,														// Can't use 'first' with tabs
+				"body": 1
+			},
+			"FunctionExpression": {
+				"parameters": 5,														// Can't use 'first' with tabs
+				"body": 1
+			},
+			"CallExpression": {
+				"arguments": 1
+			},
+			"ArrayExpression": 1,
+			"ObjectExpression": 1,
+			"ImportDeclaration": 1,
+			"flatTernaryExpressions": false,
+			"ignoredNodes": [],
+			"ignoreComments": false
+		}],
+		"@typescript-eslint/interface-name-prefix": ["error", "never"],
+		"@typescript-eslint/member-delimiter-style": ["error", {
+			"multiline": {
+				"delimiter": "semi",
+				"requireLast": true,
+			},
+			"singleline": {
+				"delimiter": "semi",
+				"requireLast": true,
+			},
 			"overrides": {
 				"interface": {},
 				"typeLiteral": {}
 			}
 		}],
-		"typescript/member-naming": "off",
-		"typescript/member-ordering": "error",
-		"typescript/no-angle-bracket-type-assertion": "error",
-		"typescript/no-array-constructor": "error",
-		"typescript/no-empty-interface": "error",
-		"typescript/no-explicit-any": "error",
-		"typescript/no-inferrable-types": ["error", {
+		"@typescript-eslint/member-naming": ["off",	{			// not using
+			"public": "",
+			"protected": "",
+			"private": ""
+		}],
+		"@typescript-eslint/member-ordering": "error",
+		"@typescript-eslint/no-angle-bracket-type-assertion": "error",
+		"@typescript-eslint/no-array-constructor": "error",
+		"@typescript-eslint/no-empty-interface": ["error", {
+			"allowSingleExtends": false
+		}],
+		"@typescript-eslint/no-explicit-any": "error",
+		"@typescript-eslint/no-extra-parens": ["error", "all", {
+			"conditionalAssign": true,
+			"returnAssign": false,													// Prevent conflict with no-return-assign
+			"nestedBinaryExpressions": false,
+			"ignoreJSX": "none",
+			"enforceForArrowConditionals": false
+		}],
+		"@typescript-eslint/no-extraneous-class": ["error",	{
+			"allowConstructorOnly": true,										// Allows for angularJS ControllerTest
+			"allowEmpty": false,
+			"allowStaticOnly": true													// Allows for angularJS directives, filters etc.
+		}],
+		"@typescript-eslint/no-for-in-array": "error",
+		"@typescript-eslint/no-inferrable-types": ["error", {
 			"ignoreProperties": false,
 			"ignoreParameters": false
 		}],
-		"typescript/no-namespace": ["error", {
+		"@typescript-eslint/no-magic-numbers": ["error", {
+			"ignore": [-1, 0, 1],
+			"ignoreArrayIndexes": true,
+			"enforceConst": true,
+			"detectObjects": false,
+			"ignoreNumericLiteralTypes": true
+		}],
+		"@typescript-eslint/no-misused-new": "error",
+		"@typescript-eslint/no-namespace": ["error", {
 			"allowDeclarations": false,
 			"allowDefinitionFiles": false
 		}],
-		"typescript/no-non-null-assertion": "error",
-		"typescript/no-parameter-properties": ["off", {
+		"@typescript-eslint/no-non-null-assertion": "error",
+		"@typescript-eslint/no-object-literal-type-assertion": ["error", {
+			"allowAsParameter": false
+		}],
+		"@typescript-eslint/no-parameter-properties": ["off", {	// not using
 			"allows": [
 				"readonly",
 				"private",
@@ -809,23 +914,59 @@ module.exports = {
 				"public readonly"
 			]
 		}],
-		"typescript/no-triple-slash-reference": "error",
-		"typescript/no-type-alias": ["off", {						// Temporarily disabled (see https://github.com/nzakas/eslint-plugin-typescript/pull/137)
+		"@typescript-eslint/no-require-imports": "off",		// Disabled until node supports ES modules
+		"@typescript-eslint/no-this-alias": ["error", {
+			"allowDestructuring": false,
+			"allowedNames": ["self"]
+		}],
+		"@typescript-eslint/no-triple-slash-reference": "error",
+		"@typescript-eslint/no-type-alias": ["error", {
 			"allowAliases": "in-unions-and-intersections",
-			"allowCallbacks": true,
+			"allowCallbacks": "always",
 			"allowLiterals": "in-unions-and-intersections",
 			"allowMappedTypes": "in-unions-and-intersections"
 		}],
-		"typescript/no-unused-vars": "error",
-		"typescript/no-use-before-define": ["error", {
+		"@typescript-eslint/no-unnecessary-qualifier": "error",
+		"@typescript-eslint/no-unnecessary-type-assertion": ["error", {
+			"typesToIgnore": []
+		}],
+		"@typescript-eslint/no-unused-vars": ["error", {
+			"vars": "all",
+			"varsIgnorePattern": "",
+			"args": "after-used",
+			"ignoreRestSiblings": false,
+			"argsIgnorePattern": "",
+			"caughtErrors": "all",
+			"caughtErrorsIgnorePattern": "^_"
+		}],
+		"@typescript-eslint/no-use-before-define": ["error", {
 			"functions": true,
 			"classes": true,
 			"variables": true,
 			"typedefs": true
 		}],
-		"typescript/no-var-requires": "off",						// Disabled until node supports ES modules
-		"typescript/prefer-namespace-keyword": "error",
-		"typescript/type-annotation-spacing": ["error", {
+		"@typescript-eslint/no-useless-constructor": "error",
+		"@typescript-eslint/no-var-requires": "off",			// Disabled until node supports ES modules
+		"@typescript-eslint/prefer-for-of": "error",
+		"@typescript-eslint/prefer-function-type": "error",
+		"@typescript-eslint/prefer-includes": "error",
+		"@typescript-eslint/prefer-interface": "error",
+		"@typescript-eslint/prefer-namespace-keyword": "error",
+		"@typescript-eslint/prefer-regexp-exec": "error",
+		"@typescript-eslint/prefer-string-starts-ends-with": "error",
+		"@typescript-eslint/promise-function-async": ["error", {
+			"allowedPromiseNames": [],
+			"checkArrowFunctions": true,
+			"checkFunctionDeclarations": true,
+			"checkFunctionExpressions": true,
+			"checkMethodDeclarations": true
+		}],
+		"@typescript-eslint/require-array-sort-compare": "error",
+		"@typescript-eslint/restrict-plus-operands": "error",
+		"@typescript-eslint/semi": ["error", "always", {
+			"omitLastInOneLineBlock": false
+		}],
+		"@typescript-eslint/type-annotation-spacing": ["error", {
 			"before": false,
 			"after": true,
 			"overrides": {
@@ -838,6 +979,10 @@ module.exports = {
 					"after": true
 				}
 			}
-		}]
+		}],
+		"@typescript-eslint/unbound-method": ["error", {
+			"ignoreStatic": true														// Allows for angularJS directtive/filter static factory methods
+		}],
+		"@typescript-eslint/unified-signatures": "error"
 	}
 };
