@@ -569,9 +569,9 @@ module.exports = {
 				"consistent": true
 			}
 		}],
-		"object-curly-spacing": ["error", "never", {
-			"arraysInObjects": false,
-			"objectsInObjects": false
+		"object-curly-spacing": ["error", "always", {
+			"arraysInObjects": true,
+			"objectsInObjects": true
 		}],
 		"object-property-newline": ["error", {
 			"allowAllPropertiesOnSameLine": true

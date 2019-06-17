@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-oharagroup",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "O'Hara Group JS style guide",
   "main": "index.js",
   "scripts": {
