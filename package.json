@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-oharagroup",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "O'Hara Group JS style guide",
   "main": "index.js",
   "scripts": {
@@ -20,10 +20,15 @@
     "url": "https://github.com/scottohara/eslint-config-oharagroup/issues"
   },
   "homepage": "https://github.com/scottohara/eslint-config-oharagroup",
+  "devDependencies": {
+    "@typescript-eslint/parser": "1.13.0",
+    "eslint": "6.1.0",
+    "typescript": "3.5.3"
+  },
   "peerDependencies": {
-		"@typescript-eslint/eslint-plugin": ">=1.10.2",
-		"@typescript-eslint/parser": ">=1.10.2",
-    "eslint": ">=5.16.0",
-    "typescript": ">=3.5.1"
+    "@typescript-eslint/eslint-plugin": ">=1.13.0",
+    "@typescript-eslint/parser": ">=1.13.0",
+    "eslint": ">=6.1.0",
+    "typescript": ">=3.5.3"
   }
 }
