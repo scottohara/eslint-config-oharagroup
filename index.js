@@ -1006,7 +1006,7 @@ module.exports = {
 		"@typescript-eslint/no-misused-new": "error",
 		"@typescript-eslint/no-misused-promises": ["error", {
 			"checksConditionals": true,
-			"checksVoidReturn": true
+			"checksVoidReturn": false
 		}],
 		"@typescript-eslint/no-namespace": ["error", {
 			"allowDeclarations": false,
