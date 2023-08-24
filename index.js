@@ -1599,7 +1599,7 @@ module.exports = {
 			// Common overrides for unit tests
 			"files": [
 				"**/*.test.ts",
-				"spec/public/mocks/**/*"
+				"**/mocks/**/*"
 			],
 			"rules": {
 				// Typescript
