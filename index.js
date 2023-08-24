@@ -1594,6 +1594,41 @@ module.exports = {
 			"rules": {
 				"no-undef": "off"
 			}
+		},
+		{
+			// Common overrides for unit tests
+			"files": [
+				"**/*.test.ts",
+				"spec/public/mocks/**/*"
+			],
+			"rules": {
+				// Typescript
+				"@typescript-eslint/consistent-type-assertions": ["error", {
+					"assertionStyle": "as",
+					"objectLiteralTypeAssertions": "allow"					// Required for mocking partial types
+				}],
+				"@typescript-eslint/dot-notation": "off",					// Disable to allow accessing private members using square-bracket notation
+				"@typescript-eslint/no-magic-numbers": "off",			// Disable due to lots of numbers used in assertions
+			}
+		},
+		{
+			// Common overrides for Cypress
+			"files": ["cypress/**/*"],
+			"parserOptions": {
+				"project": "./cypress/tsconfig.json"
+			},
+			"globals": {
+				"cy": "readonly",
+				"Cypress": "readonly",
+				"expect": "readonly"
+			},
+			"rules": {
+				"@typescript-eslint/no-magic-numbers": "off",			// Disable due to lots of numbers used in assertions
+				"@typescript-eslint/no-namespace": ["error", {
+					"allowDeclarations": false,
+					"allowDefinitionFiles": true										// Needed for extending Cypress.Chainable inteface for custom commands
+				}]
+			}
 		}
 	],
 	"noInlineConfig": true,
