@@ -299,7 +299,7 @@ module.exports = {
 		}],
 		"no-caller": "error",
 		"no-case-declarations": "error",
-		"no-confusing-arrow": ["error", {
+		"no-confusing-arrow": ["off", {									// Disabled in favour of prettier
 			"allowParens": true,
 			"onlyOneSimpleParam": false
 		}],
@@ -368,7 +368,7 @@ module.exports = {
 			"enforceConst": true,
 			"detectObjects": false
 		}],
-		"no-mixed-operators": ["error", {
+		"no-mixed-operators": ["off", {									// Disabled in favour of prettier
 			"groups": [],
 			"allowSamePrecedence": true
 		}],
@@ -564,7 +564,7 @@ module.exports = {
 		}],
 
 		// Layout & formatting
-		"array-bracket-newline": ["error", "consistent"],
+		"array-bracket-newline": ["off", "consistent"],	// Disabled in favour of prettier
 		"array-bracket-spacing": ["error", "never", {
 			"singleValue": false,
 			"objectsInArrays": false,
@@ -580,7 +580,7 @@ module.exports = {
 				"minItems": null
 			}
 		}],
-		"arrow-parens": ["error", "as-needed", {
+		"arrow-parens": ["off", "as-needed", {					// Disabled in favour of prettier
 			"requireForBlockBody": false
 		}],
 		"arrow-spacing": ["error", {
@@ -613,11 +613,11 @@ module.exports = {
 			"enforceForClassMembers": true
 		}],
 		"dot-location": ["error", "property"],
-		"eol-last": ["off", "always"],										// Not using
-		"func-call-spacing": ["off", "never"],						// Disabled in favour of @typescript-eslint/func-call-spacing rule
+		"eol-last": ["off", "always"],									// Not using
+		"func-call-spacing": ["off", "never"],					// Disabled in favour of @typescript-eslint/func-call-spacing rule
 		"function-call-argument-newline": ["error", "consistent"],
-		"function-paren-newline": ["error", "never"],
-		"generator-star-spacing": ["error", {
+		"function-paren-newline": ["off", "never"],			// Disabled in favour of prettier
+		"generator-star-spacing": ["off", {							// Disabled in favour of prettier
 			"before": true,
 			"after": false,
 			"named": {
@@ -633,7 +633,7 @@ module.exports = {
 				"after": false
 			}
 		}],
-		"implicit-arrow-linebreak": ["error", "beside"],
+		"implicit-arrow-linebreak": ["off", "beside"],	// Disabled in favour of prettier
 		"indent": ["off", "tab", {											// Disabled in favour of @typescript-eslint/indent rule
 			"SwitchCase": 1,
 			"VariableDeclarator": {
@@ -724,7 +724,7 @@ module.exports = {
 		"max-statements-per-line": ["error", {
 			"max": 1
 		}],
-		"multiline-ternary": ["error", "never"],
+		"multiline-ternary": ["off", "never"],					// Disabled in favour of prettier
 		"new-parens": ["error", "always"],
 		"newline-per-chained-call": ["error", {
 			"ignoreChainWithDepth": 4
@@ -741,7 +741,7 @@ module.exports = {
 			"enforceForFunctionPrototypeMethods": true,
 			"allowParensAfterCommentPattern": ""
 		}],
-		"no-mixed-spaces-and-tabs": "error",
+		"no-mixed-spaces-and-tabs": "off",							// Disabled in favour of prettier
 		"no-multi-spaces": ["error", {
 			"exceptions": {
 				"BinaryExpression": true,
@@ -793,7 +793,7 @@ module.exports = {
 		"object-property-newline": ["error", {
 			"allowAllPropertiesOnSameLine": true
 		}],
-		"operator-linebreak": ["error", "after", {
+		"operator-linebreak": ["off", "after", {				// Disabled in favour of prettier
 			"overrides": {}
 		}],
 		"padded-blocks": ["error", {
@@ -853,7 +853,7 @@ module.exports = {
 		"wrap-iife": ["error", "inside", {
 			"functionPrototypeMethods": true
 		}],
-		"wrap-regex": "error",
+		"wrap-regex": "off",														// Disabled in favour of prettier
 		"yield-star-spacing": ["error", {
 			"before": true,
 			"after": false
@@ -1380,10 +1380,10 @@ module.exports = {
 
 		// Formatting Rules
 		"@typescript-eslint/block-spacing": ["error", "always"],
-		"@typescript-eslint/brace-style": ["error", "1tbs", {
+		"@typescript-eslint/brace-style": ["off", "1tbs", {	// Disabled in favour of prettier
 			"allowSingleLine": false
 		}],
-		"@typescript-eslint/comma-dangle": ["error", {
+		"@typescript-eslint/comma-dangle": ["off", {		// Disabled in favour of prettier
 			"arrays": "never",
 			"objects": "never",
 			"imports": "never",
@@ -1398,7 +1398,7 @@ module.exports = {
 			"after": true
 		}],
 		"@typescript-eslint/func-call-spacing": ["error", "never"],
-		"@typescript-eslint/indent": ["error", "tab", {
+		"@typescript-eslint/indent": ["off", "tab", {		// Disabled in favour of prettier
 			"SwitchCase": 1,
 			"VariableDeclarator": {
 				"var": 2,
@@ -1446,7 +1446,7 @@ module.exports = {
 			"before": true,
 			"overrides": {}
 		}],
-		"@typescript-eslint/lines-around-comment": ["error", {
+		"@typescript-eslint/lines-around-comment": ["off", {	// Disabled in favour of prettier
 			"beforeBlockComment": true,
 			"afterBlockComment": false,
 			"beforeLineComment": true,
@@ -1475,7 +1475,7 @@ module.exports = {
 			"exceptAfterSingleLine": false,
 			"exceptAfterOverload": false
 		}],
-		"@typescript-eslint/member-delimiter-style": ["error", {
+		"@typescript-eslint/member-delimiter-style": ["off", {	// Disabled in favour of prettier
 			"multiline": {
 				"delimiter": "semi",
 				"requireLast": true,
@@ -1511,7 +1511,7 @@ module.exports = {
 			"prev": "*",
 			"next": "*"
 		}],
-		"@typescript-eslint/quotes": ["error", "double", {
+		"@typescript-eslint/quotes": ["off", "double", {	// Disabled in favour of prettier
 			"avoidEscape": false,
 			"allowTemplateLiterals": false
 		}],
