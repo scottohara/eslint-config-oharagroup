@@ -1,5 +1,6 @@
 export default {
-	"array-bracket-newline": ["off", "consistent"], // Disabled in favour of prettier
+	// Disabled in favour of prettier
+	"array-bracket-newline": ["off", "consistent"],
 	"array-bracket-spacing": [
 		"error",
 		"never",
@@ -9,10 +10,10 @@ export default {
 			arraysInArrays: false,
 		},
 	],
+	// Not using
 	"array-element-newline": [
 		"off",
 		{
-			// Not using
 			ArrayExpression: {
 				multiline: true,
 				minItems: null,
@@ -23,11 +24,11 @@ export default {
 			},
 		},
 	],
+	// Disabled in favour of prettier
 	"arrow-parens": [
 		"off",
 		"as-needed",
 		{
-			// Disabled in favour of prettier
 			requireForBlockBody: false,
 		},
 	],
@@ -38,20 +39,21 @@ export default {
 			after: true,
 		},
 	],
-	"block-spacing": ["off", "never"], // Disabled in favour of @typescript-eslint/block-spacing rule, which was later removed
+	// Disabled in favour of @typescript-eslint/block-spacing rule, which was later removed
+	"block-spacing": ["off", "never"],
+	// Disabled in favour of @typescript-eslint/brace-style rule, which was later removed
 	"brace-style": [
 		"off",
 		"1tbs",
 		{
-			// Disabled in favour of @typescript-eslint/brace-style rule, which was later removed
 			allowSingleLine: false,
 		},
 	],
 	"callback-return": "off",
+	// Disabled in favour of @typescript-eslint/comma-dangle rule, which was later removed
 	"comma-dangle": [
 		"off",
 		{
-			// Disabled in favour of @typescript-eslint/comma-dangle rule, which was later removed
 			arrays: "never",
 			objects: "never",
 			imports: "never",
@@ -59,10 +61,10 @@ export default {
 			functions: "never",
 		},
 	],
+	// Disabled in favour of @typescript-eslint/comma-spacing rule, which was later removed
 	"comma-spacing": [
 		"off",
 		{
-			// Disabled in favour of @typescript-eslint/comma-spacing rule, which was later removed
 			before: false,
 			after: true,
 		},
@@ -86,14 +88,17 @@ export default {
 		},
 	],
 	"dot-location": ["error", "property"],
-	"eol-last": ["off", "always"], // Not using
-	"func-call-spacing": ["off", "never"], // Disabled in favour of @typescript-eslint/func-call-spacing rule, which was later removed
+	// Not using
+	"eol-last": ["off", "always"],
+	// Disabled in favour of @typescript-eslint/func-call-spacing rule, which was later removed
+	"func-call-spacing": ["off", "never"],
 	"function-call-argument-newline": ["error", "consistent"],
-	"function-paren-newline": ["off", "never"], // Disabled in favour of prettier
+	// Disabled in favour of prettier
+	"function-paren-newline": ["off", "never"],
+	// Disabled in favour of prettier
 	"generator-star-spacing": [
 		"off",
 		{
-			// Disabled in favour of prettier
 			before: true,
 			after: false,
 			named: {
@@ -113,12 +118,13 @@ export default {
 	"global-require": "off",
 	"handle-callback-err": "off",
 	"id-blacklist": "error",
-	"implicit-arrow-linebreak": ["off", "beside"], // Disabled in favour of prettier
+	// Disabled in favour of prettier
+	"implicit-arrow-linebreak": ["off", "beside"],
+	// Disabled in favour of @typescript-eslint/indent rule, which was later removed
 	indent: [
 		"off",
 		"tab",
 		{
-			// Disabled in favour of @typescript-eslint/indent rule, which was later removed
 			SwitchCase: 1,
 			VariableDeclarator: {
 				var: 2,
@@ -152,10 +158,10 @@ export default {
 	],
 	"indent-legacy": "off",
 	"jsx-quotes": ["error", "prefer-double"],
+	// Disabled in favour of @typescript-eslint/key-spacing rule, which was later removed
 	"key-spacing": [
 		"off",
 		{
-			// Disabled in favour of @typescript-eslint/key-spacing rule, which was later removed
 			singleLine: {
 				beforeColon: false,
 				afterColon: true,
@@ -168,20 +174,20 @@ export default {
 			},
 		},
 	],
+	// Disabled in favour of @typescript-eslint/keyword-spacing rule, which was later removed
 	"keyword-spacing": [
 		"off",
 		{
-			// Disabled in favour of @typescript-eslint/keyword-spacing rule, which was later removed
 			after: true,
 			before: true,
 			overrides: {},
 		},
 	],
 	"linebreak-style": ["error", "unix"],
+	// Disabled in favour of @typescript-eslint/lines-around-comment rule, which was later removed
 	"lines-around-comment": [
 		"off",
 		{
-			// Disabled in favour of @typescript-eslint/lines-around-comment rule, which was later removed
 			beforeBlockComment: true,
 			afterBlockComment: false,
 			beforeLineComment: true,
@@ -206,18 +212,18 @@ export default {
 			after: "always",
 		},
 	],
+	// Disabled in favour of @typescript-eslint/lines-between-class-members rule, which was later removed
 	"lines-between-class-members": [
 		"off",
 		"always",
 		{
-			// Disabled in favour of @typescript-eslint/lines-between-class-members rule, which was later removed
 			exceptAfterSingleLine: false,
 		},
 	],
+	// Not using
 	"max-len": [
 		"off",
 		{
-			// Not using
 			code: 80,
 			tabWidth: 2,
 			comments: 80,
@@ -236,7 +242,8 @@ export default {
 			max: 1,
 		},
 	],
-	"multiline-ternary": ["off", "never"], // Disabled in favour of prettier
+	// Disabled in favour of prettier
+	"multiline-ternary": ["off", "never"],
 	"new-parens": ["error", "always"],
 	"newline-after-var": ["error", "always"],
 	"newline-before-return": "error",
@@ -248,21 +255,22 @@ export default {
 	],
 	"no-buffer-constructor": "off",
 	"no-catch-shadow": "off",
+	// Disabled in favour of prettier
 	"no-confusing-arrow": [
 		"off",
 		{
-			// Disabled in favour of prettier
 			allowParens: true,
 			onlyOneSimpleParam: false,
 		},
 	],
+	// Disabled in favour of @typescript-eslint/no-extra-parens rule, which was later removed
 	"no-extra-parens": [
 		"off",
 		"all",
 		{
-			// Disabled in favour of @typescript-eslint/no-extra-parens rule, which was later removed
 			conditionalAssign: true,
-			returnAssign: false, // Prevent conflict with no-return-assign
+			// Prevent conflict with no-return-assign
+			returnAssign: false,
 			nestedBinaryExpressions: false,
 			ternaryOperandBinaryExpressions: false,
 			ignoreJSX: "none",
@@ -273,18 +281,20 @@ export default {
 			allowParensAfterCommentPattern: "",
 		},
 	],
-	"no-extra-semi": "off", // Disabled in favour of @typescript-eslint/no-extra-semi rule, which was later removed
+	// Disabled in favour of @typescript-eslint/no-extra-semi rule, which was later removed
+	"no-extra-semi": "off",
 	"no-floating-decimal": "error",
+	// Disabled in favour of prettier
 	"no-mixed-operators": [
 		"off",
 		{
-			// Disabled in favour of prettier
 			groups: [],
 			allowSamePrecedence: true,
 		},
 	],
 	"no-mixed-requires": "off",
-	"no-mixed-spaces-and-tabs": "off", // Disabled in favour of prettier
+	// Disabled in favour of prettier
+	"no-mixed-spaces-and-tabs": "off",
 	"no-multi-spaces": [
 		"error",
 		{
@@ -309,7 +319,8 @@ export default {
 	"no-new-require": "off",
 	"no-new-symbol": "error",
 	"no-path-concat": "off",
-	"no-process-env": "off", // Not using (goes against 12-factor app principles)
+	// Not using (goes against 12-factor app principles)
+	"no-process-env": "off",
 	"no-process-exit": "off",
 	"no-restricted-modules": [
 		"off",
@@ -318,17 +329,18 @@ export default {
 			patterns: [],
 		},
 	],
-	"no-return-await": "off", // Disabled in favour of @typescript-eslint/return-await rule
+	// Disabled in favour of @typescript-eslint/return-await rule
+	"no-return-await": "off",
 	"no-sync": [
 		"off",
 		{
 			allowAtRootLevel: false,
 		},
 	],
+	// Not using
 	"no-tabs": [
 		"off",
 		{
-			// Not using
 			allowIndentationTab: false,
 		},
 	],
@@ -370,11 +382,11 @@ export default {
 			},
 		},
 	],
+	// Disabled in favour of @typescript-eslint/object-curly-spacing rule, which was later removed
 	"object-curly-spacing": [
 		"off",
 		"always",
 		{
-			// Disabled in favour of @typescript-eslint/object-curly-spacing rule, which was later removed
 			arraysInObjects: true,
 			objectsInObjects: true,
 		},
@@ -386,11 +398,11 @@ export default {
 		},
 	],
 	"one-var-declaration-per-line": ["error", "initializations"],
+	// Disabled in favour of prettier
 	"operator-linebreak": [
 		"off",
 		"after",
 		{
-			// Disabled in favour of prettier
 			overrides: {},
 		},
 	],
@@ -405,10 +417,10 @@ export default {
 			allowSingleLineBlocks: true,
 		},
 	],
+	// Disabled in favour of @typescript-eslint/padding-line-between-statements rule, which was later removed
 	"padding-line-between-statements": [
 		"off",
 		{
-			// Disabled in favour of @typescript-eslint/padding-line-between-statements rule, which was later removed
 			blankLine: "any",
 			prev: "*",
 			next: "*",
@@ -423,21 +435,21 @@ export default {
 			numbers: false,
 		},
 	],
+	// Disabled in favour of @typescript-eslint/quotes rule, which was later removed
 	quotes: [
 		"off",
 		"double",
 		{
-			// Disabled in favour of @typescript-eslint/quotes rule, which was later removed
 			avoidEscape: false,
 			allowTemplateLiterals: false,
 		},
 	],
 	"rest-spread-spacing": ["error", "never"],
+	// Disabled in favour of @typescript-eslint/semi rule, which was later removed
 	semi: [
 		"off",
 		"always",
 		{
-			// Disabled in favour of @typescript-eslint/semi rule, which was later removed
 			omitLastInOneLineBlock: false,
 			omitLastInOneLineClassBody: false,
 		},
@@ -450,19 +462,19 @@ export default {
 		},
 	],
 	"semi-style": ["error", "last"],
+	// Disabled in favour of @typescript-eslint/space-before-blocks rule, which was later removed
 	"space-before-blocks": [
 		"off",
 		{
-			// Disabled in favour of @typescript-eslint/space-before-blocks rule, which was later removed
 			functions: "always",
 			keywords: "always",
 			classes: "always",
 		},
 	],
+	// Disabled in favour of @typescript-eslint/space-before-function-paren rule, which was later removed
 	"space-before-function-paren": [
 		"off",
 		{
-			// Disabled in favour of @typescript-eslint/space-before-function-paren rule, which was later removed
 			anonymous: "never",
 			named: "never",
 			asyncArrow: "always",
@@ -475,10 +487,10 @@ export default {
 			exceptions: [],
 		},
 	],
+	// Disabled in favour of @typescript-eslint/space-infix-ops rule, which was later removed
 	"space-infix-ops": [
 		"off",
 		{
-			// Disabled in favour of @typescript-eslint/space-infix-ops rule, which was later removed
 			int32Hint: false,
 		},
 	],
@@ -521,7 +533,8 @@ export default {
 			functionPrototypeMethods: true,
 		},
 	],
-	"wrap-regex": "off", // Disabled in favour of prettier
+	// Disabled in favour of prettier
+	"wrap-regex": "off",
 	"yield-star-spacing": [
 		"error",
 		{

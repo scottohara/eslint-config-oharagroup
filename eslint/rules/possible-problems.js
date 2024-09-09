@@ -3,7 +3,8 @@ export default {
 		"error",
 		{
 			allowImplicit: false,
-			checkForEach: false, // Allow concise arrow function bodies in forEach
+			// Allow concise arrow function bodies in forEach
+			checkForEach: false,
 			allowVoid: false,
 		},
 	],
@@ -28,18 +29,20 @@ export default {
 			checkLoops: "allExceptWhileTrue",
 		},
 	],
-	"no-constructor-return": "off", // Not using
+	// Not using
+	"no-constructor-return": "off",
 	"no-control-regex": "error",
 	"no-debugger": "error",
 	"no-dupe-args": "error",
-	"no-dupe-class-members": "off", // Disabled in favour of @typescript-eslint/no-dup-class-members rule
+	// Disabled in favour of @typescript-eslint/no-dup-class-members rule
+	"no-dupe-class-members": "off",
 	"no-dupe-else-if": "error",
 	"no-dupe-keys": "error",
 	"no-duplicate-case": "error",
+	// Disabled in favour of @typescript-eslint/no-duplicate-imports rule
 	"no-duplicate-imports": [
 		"off",
 		{
-			// Disabled in favour of @typescript-eslint/no-duplicate-imports rule
 			includeExports: true,
 		},
 	],
@@ -134,10 +137,10 @@ export default {
 		},
 	],
 	"no-unused-private-class-members": "error",
+	// Disabled in favour of @typescript-eslint/no-unused-vars rule
 	"no-unused-vars": [
 		"off",
 		{
-			// Disabled in favour of @typescript-eslint/no-unused-vars rule
 			vars: "all",
 			varsIgnorePattern: "",
 			args: "after-used",
@@ -150,10 +153,10 @@ export default {
 			reportUsedIgnorePattern: true,
 		},
 	],
+	// Disabled if favour of @typescript-eslint/no-use-before-define rule
 	"no-use-before-define": [
 		"off",
 		{
-			// Disabled if favour of @typescript-eslint/no-use-before-define rule
 			classes: true,
 			functions: true,
 			variables: true,

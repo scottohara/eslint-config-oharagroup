@@ -177,8 +177,9 @@ export default {
 		},
 	],
 	"@typescript-eslint/method-signature-style": ["error", "property"],
+	// Not using
 	"@typescript-eslint/naming-convention": [
-		"off", // Not using
+		"off",
 		{
 			selector: "default",
 			format: ["strictCamelCase"],
@@ -261,9 +262,11 @@ export default {
 	"@typescript-eslint/no-extraneous-class": [
 		"error",
 		{
-			allowConstructorOnly: true, // Allows for angularJS ControllerTest
+			// Allows for angularJS ControllerTest
+			allowConstructorOnly: true,
 			allowEmpty: false,
-			allowStaticOnly: true, // Allows for angularJS directives, filters etc.
+			// Allows for angularJS directives, filters etc.
+			allowStaticOnly: true,
 			allowWithDecorator: false,
 		},
 	],
@@ -327,10 +330,10 @@ export default {
 	"@typescript-eslint/no-non-null-asserted-optional-chain": "error",
 	"@typescript-eslint/no-non-null-assertion": "error",
 	"@typescript-eslint/no-redundant-type-constituents": "error",
+	// Disabled until all projects are ESM
 	"@typescript-eslint/no-require-imports": [
 		"off",
 		{
-			// Disabled until all projects are ESM
 			allow: [],
 			allowAsImport: false,
 		},
@@ -385,15 +388,16 @@ export default {
 	"@typescript-eslint/no-unsafe-member-access": "error",
 	"@typescript-eslint/no-unsafe-return": "error",
 	"@typescript-eslint/no-useless-empty-export": "error",
+	// Disabled until projects are ESM
 	"@typescript-eslint/no-var-requires": [
 		"off",
 		{
-			// Disabled until projects are ESM
 			allow: [],
 		},
 	],
 	"@typescript-eslint/no-wrapper-object-types": "error",
-	"@typescript-eslint/non-nullable-type-assertion-style": "off", // Not using - conflicts with no-non-null-asssertion
+	// Not using - conflicts with no-non-null-asssertion
+	"@typescript-eslint/non-nullable-type-assertion-style": "off",
 	"@typescript-eslint/only-throw-error": [
 		"error",
 		{
@@ -468,10 +472,10 @@ export default {
 			onlyInlineLambdas: false,
 		},
 	],
+	// Not using - prefer no-param-reassign instead
 	"@typescript-eslint/prefer-readonly-parameter-types": [
 		"off",
 		{
-			// Not using - prefer no-param-reassign instead
 			allow: [],
 			checkParameterProperties: true,
 			ignoreInferredTypes: false,
@@ -567,7 +571,8 @@ export default {
 	"@typescript-eslint/switch-exhaustiveness-check": [
 		"error",
 		{
-			allowDefaultCaseForExhaustiveSwitch: true, // Setting to false conflicts with default-case rule
+			// Setting to false conflicts with default-case rule
+			allowDefaultCaseForExhaustiveSwitch: true,
 			requireDefaultForNonUnion: true,
 		},
 	],
@@ -579,10 +584,10 @@ export default {
 			lib: "never",
 		},
 	],
+	// Not using
 	"@typescript-eslint/typedef": [
 		"off",
 		{
-			// Not using
 			arrayDestructuring: true,
 			arrowParameter: true,
 			memberVariableDeclaration: true,
@@ -596,7 +601,8 @@ export default {
 	"@typescript-eslint/unbound-method": [
 		"error",
 		{
-			ignoreStatic: true, // Allows for angularJS directtive/filter static factory methods
+			// Allows for angularJS directtive/filter static factory methods
+			ignoreStatic: true,
 		},
 	],
 	"@typescript-eslint/unified-signatures": [
