@@ -50,7 +50,7 @@ export default tseslint.config(
 3. Update the `eslint` version in `package.json`, and bump the package `version`
 4. Ensure that this package is registered for linking (`cd [this dir] && npm link`)
 5. Test by going to a project that uses the shared config and `npm link eslint-config-oharagroup`
-6. Publish the new version (`npm publish`)
+6. Publish the new version (`npm run publish --otp=[otp code goes here]`)
 7. Unlink the local version in the test project if necessary (`npm unlink`)
 
 ## Configs
