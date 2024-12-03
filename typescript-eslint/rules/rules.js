@@ -225,6 +225,7 @@ export default {
 		{
 			ignoreArrowShorthand: true,
 			ignoreVoidOperator: false,
+			ignoreVoidReturningFunctions: false,
 		},
 	],
 	"@typescript-eslint/no-deprecated": "error",
@@ -338,6 +339,8 @@ export default {
 			allowAsImport: false,
 		},
 	],
+	// Not using
+	"@typescript-eslint/no-unsafe-type-assertion": "off",
 	"@typescript-eslint/no-restricted-types": [
 		"error",
 		{
@@ -364,6 +367,7 @@ export default {
 		"error",
 		{
 			allowConstantLoopConditions: false,
+			checkTypePredicates: true,
 			allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false,
 		},
 	],
@@ -403,6 +407,7 @@ export default {
 		{
 			allowThrowingAny: false,
 			allowThrowingUnknown: false,
+			allow: [],
 		},
 	],
 	"@typescript-eslint/parameter-properties": [
@@ -462,6 +467,7 @@ export default {
 				number: false,
 				string: false,
 			},
+			ignoreBooleanCoercion: false,
 			allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing: false,
 		},
 	],
@@ -503,6 +509,7 @@ export default {
 			checkMethodDeclarations: true,
 		},
 	],
+	"@typescript-eslint/related-getter-setter-pairs": "error",
 	"@typescript-eslint/require-array-sort-compare": [
 		"error",
 		{
@@ -530,6 +537,7 @@ export default {
 			allowRegExp: false,
 			allowNever: false,
 			allowArray: false,
+			allow: [{ name: ["Error", "URL", "URLSearchParams"], from: "lib" }],
 		},
 	],
 	"@typescript-eslint/sort-type-constituents": [
@@ -574,6 +582,7 @@ export default {
 			// Setting to false conflicts with default-case rule
 			allowDefaultCaseForExhaustiveSwitch: true,
 			requireDefaultForNonUnion: true,
+			considerDefaultExhaustiveForUnions: false,
 		},
 	],
 	"@typescript-eslint/triple-slash-reference": [

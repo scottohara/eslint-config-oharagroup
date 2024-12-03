@@ -20,6 +20,7 @@ export default {
 	"svelte/no-ignored-unsubscribe": "error",
 	"svelte/no-immutable-reactive-statements": "error",
 	"svelte/no-inline-styles": "error",
+	"svelte/no-inspect": "error",
 	"svelte/no-reactive-functions": "error",
 	"svelte/no-reactive-literals": "error",
 	"svelte/no-svelte-internal": "error",

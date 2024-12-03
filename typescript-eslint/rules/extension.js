@@ -139,7 +139,11 @@ export default {
 	"@typescript-eslint/no-useless-constructor": "error",
 	"@typescript-eslint/prefer-promise-reject-errors": [
 		"error",
-		{ allowEmptyReject: false },
+		{
+			allowEmptyReject: false,
+			allowThrowingAny: false,
+			allowThrowingUnknown: false,
+		},
 	],
 	"@typescript-eslint/require-await": "error",
 	"@typescript-eslint/return-await": ["error", "in-try-catch"],

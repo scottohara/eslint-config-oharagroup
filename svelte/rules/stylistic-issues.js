@@ -7,6 +7,17 @@ export default {
 			singleline: "beside",
 		},
 	],
+	"svelte/html-closing-bracket-new-line": [
+		"error",
+		{
+			singleline: "never",
+			multiline: "always",
+			selfClosingTag: {
+				singleline: "never",
+				multiline: "always",
+			},
+		},
+	],
 	"svelte/html-closing-bracket-spacing": [
 		"error",
 		{
@@ -29,7 +40,8 @@ export default {
 		"error",
 		{
 			void: "always",
-			normal: "always",
+			normal: "never",
+			foreign: "always",
 			component: "always",
 			svelte: "always",
 		},

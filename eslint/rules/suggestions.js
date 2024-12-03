@@ -54,6 +54,7 @@ export default {
 		"off",
 		{
 			max: 20,
+			variant: "classic",
 		},
 	],
 	// Disabled in favour of @typescript-eslint/consistent-return rule
@@ -568,7 +569,7 @@ export default {
 	radix: ["error", "as-needed"],
 	// Disabled in favour of @typescript-eslint/require-await rule
 	"require-await": "off",
-	"require-unicode-regexp": "error",
+	"require-unicode-regexp": ["error", { requireFlag: "v" }],
 	"require-yield": "error",
 	"sort-imports": [
 		"error",
@@ -588,6 +589,7 @@ export default {
 			minKeys: 2,
 			natural: true,
 			allowLineSeparatedGroups: false,
+			ignoreComputedKeys: false,
 		},
 	],
 	"sort-vars": [
