@@ -3,19 +3,10 @@ export default {
 		"error",
 		{
 			enforceScriptPresent: true,
-			enforceStylePresent: false,
 			script: "ts",
-			style: null,
 		},
 	],
-	"svelte/button-has-type": [
-		"error",
-		{
-			button: true,
-			submit: true,
-			reset: true,
-		},
-	],
+	"svelte/button-has-type": "error",
 	"svelte/no-at-debug-tags": "error",
 	"svelte/no-ignored-unsubscribe": "error",
 	"svelte/no-immutable-reactive-statements": "error",
@@ -26,13 +17,7 @@ export default {
 	"svelte/no-svelte-internal": "error",
 	"svelte/no-unused-class-name": "error",
 	"svelte/no-unused-svelte-ignore": "error",
-	"svelte/no-useless-mustaches": [
-		"error",
-		{
-			ignoreIncludesComment: false,
-			ignoreStringEscape: false,
-		},
-	],
+	"svelte/no-useless-mustaches": "error",
 	"svelte/prefer-destructured-store-props": "error",
 	"svelte/require-each-key": "error",
 	"svelte/require-event-dispatcher-types": "error",

@@ -9,12 +9,7 @@ export default {
 	"svelte/no-export-load-in-svelte-module-in-kit-pages": "error",
 	"svelte/no-not-function-handler": "error",
 	"svelte/no-object-in-text-mustaches": "error",
-	"svelte/no-reactive-reassign": [
-		"error",
-		{
-			props: true,
-		},
-	],
+	"svelte/no-reactive-reassign": "error",
 	"svelte/no-shorthand-style-property-overrides": "error",
 	"svelte/no-store-async": "error",
 	"svelte/no-unknown-style-directive-property": [
@@ -25,11 +20,6 @@ export default {
 	],
 	"svelte/require-store-callbacks-use-set-param": "error",
 	"svelte/require-store-reactive-access": "error",
-	"svelte/valid-compile": [
-		"error",
-		{
-			ignoreWarnings: false,
-		},
-	],
+	"svelte/valid-compile": "error",
 	"svelte/valid-prop-names-in-kit-pages": "error",
 };
