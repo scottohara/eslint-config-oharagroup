@@ -8,12 +8,7 @@ export default {
 		},
 	],
 	"block-scoped-var": "error",
-	camelcase: [
-		"error",
-		{
-			properties: "never",
-		},
-	],
+	camelcase: "error",
 	"capitalized-comments": [
 		"error",
 		"always",
