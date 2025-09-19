@@ -1,5 +1,7 @@
 # O'Hara Group JS style guide
 
+[![Maintainability](https://qlty.sh/gh/scottohara/projects/eslint-config-oharagroup/maintainability.svg)](https://qlty.sh/gh/scottohara/projects/eslint-config-oharagroup)
+
 ## Usage:
 
 1. Add this module as a `devDependency` to your project (`npm install eslint-config-oharagroup --save-dev)
