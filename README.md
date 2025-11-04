@@ -2,12 +2,12 @@
 
 [![Maintainability](https://qlty.sh/gh/scottohara/projects/eslint-config-oharagroup/maintainability.svg)](https://qlty.sh/gh/scottohara/projects/eslint-config-oharagroup)
 
-## Usage:
+## Usage
 
 1. Add this module as a `devDependency` to your project (`npm install eslint-config-oharagroup --save-dev)
 2. Create eslint.config.js (for ESM projects) or eslint.config.mjs (for CJS projects) as follows:
 
-#### For JS-only projects
+### For JS-only projects
 
 ```js
 import oharagroup from "eslint-config-oharagroup";
@@ -19,7 +19,7 @@ export default [
 ];
 ```
 
-#### For JS + TS projects
+### For JS + TS projects
 
 ```js
 import oharagroup from "eslint-config-oharagroup";
@@ -32,7 +32,7 @@ export default tseslint.config(
 );
 ```
 
-#### For Svelte + TS projects
+### For Svelte + TS projects
 
 ```js
 import oharagroup from "eslint-config-oharagroup";
@@ -45,7 +45,7 @@ export default tseslint.config(
 );
 ```
 
-## Upgrading to new eslint versions:
+## Upgrading to new eslint versions
 
 1. Apply any rule changes to the corresponding rule files
 2. Run linting on this package (`npm run lint`)
@@ -79,7 +79,7 @@ All unused rules **MUST**:
 2. be set to "off"
 3. not have any config options
 
-##### Rationale:
+#### Rationale
 
 ESlint rules are off by default unless explicitly enabled, so omitting a rule from the config is the same as setting it to "off".
 
@@ -136,7 +136,7 @@ It is therefore redundant to specify an option value that is the same as the def
 
 Rules **MUST** omit any options that are already the default value.
 
-##### Rationale:
+#### Rationale
 
 Rule options in the config are intended to signal preferences that deviate from from the default options.
 
@@ -163,7 +163,7 @@ Use the config inspector (`npx @eslint/config-inspector@latest`) to look for iss
 
 ### New rules that are missing from the config
 
-```
+```plaintext
 Plugins: All
 Usage: Unused
 State: All
@@ -175,7 +175,7 @@ Such rules should be added (even if set to "off").
 
 ### Disabled rules that have config options
 
-```
+```plaintext
 Plugins: All
 Usage: Off
 State: All
