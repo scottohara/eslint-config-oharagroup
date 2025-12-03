@@ -1,12 +1,12 @@
 import defaultConfigs from "./defaults/index.js";
+import { defineConfig } from "eslint/config";
 import eslintConfigs from "./eslint/index.js";
 import svelteConfigs from "./svelte/index.js";
-import tseslint from "typescript-eslint";
 import typescriptEslintConfigs from "./typescript-eslint/index.js";
 
-const js = tseslint.config(...defaultConfigs, ...eslintConfigs),
-	ts = tseslint.config(...js, ...typescriptEslintConfigs),
-	svelte = tseslint.config(...ts, ...svelteConfigs);
+const js = defineConfig(...defaultConfigs, ...eslintConfigs),
+	ts = defineConfig(...js, ...typescriptEslintConfigs),
+	svelte = defineConfig(...ts, ...svelteConfigs);
 
 export default {
 	// Config for JS-only projects

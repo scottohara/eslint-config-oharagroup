@@ -33,6 +33,7 @@ export default {
 	"@typescript-eslint/no-shadow": [
 		"error",
 		{
+			builtinGlobals: true,
 			hoist: "all",
 			ignoreOnInitialization: true,
 			ignoreTypeValueShadow: false,
@@ -45,6 +46,7 @@ export default {
 			enforceForJSX: true,
 		},
 	],
+	"@typescript-eslint/no-unused-private-class-members": "error",
 	"@typescript-eslint/no-unused-vars": [
 		"error",
 		{
@@ -61,6 +63,7 @@ export default {
 	"@typescript-eslint/only-throw-error": [
 		"error",
 		{
+			allowRethrowing: false,
 			allowThrowingAny: false,
 			allowThrowingUnknown: false,
 		},

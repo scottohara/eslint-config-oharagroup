@@ -1,4 +1,5 @@
 export default {
+	"svelte/consistent-selector-style": "off",
 	"svelte/derived-has-same-inputs-outputs": "error",
 	"svelte/first-attribute-linebreak": "error",
 	"svelte/html-closing-bracket-new-line": "error",
@@ -8,21 +9,8 @@ export default {
 			selfClosingTag: "never",
 		},
 	],
-	"svelte/html-quotes": [
-		"error",
-		{
-			prefer: "double",
-			dynamic: {
-				avoidInvalidUnquotedInHTML: true,
-			},
-		},
-	],
-	"svelte/html-self-closing": [
-		"error",
-		{
-			normal: "never",
-		},
-	],
+	"svelte/html-quotes": "error",
+	"svelte/html-self-closing": "error",
 	"svelte/indent": [
 		"error",
 		{
@@ -37,6 +25,7 @@ export default {
 	"svelte/no-spaces-around-equal-signs-in-attribute": "error",
 	"svelte/prefer-class-directive": "error",
 	"svelte/prefer-style-directive": "error",
+	"svelte/require-event-prefix": ["error", { checkAsyncFunctions: true }],
 	"svelte/shorthand-attribute": "error",
 	"svelte/shorthand-directive": "error",
 	"svelte/sort-attributes": "error",

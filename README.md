@@ -22,10 +22,10 @@ export default [
 ### For JS + TS projects
 
 ```js
+import { defineConfig } from "eslint/config";
 import oharagroup from "eslint-config-oharagroup";
-import tseslint from "typescript-eslint";
 
-export default tseslint.config(
+export default defineConfig(
 	...oharagroup.ts,
 
 	// add any additional config here
@@ -35,10 +35,10 @@ export default tseslint.config(
 ### For Svelte + TS projects
 
 ```js
+import { defineConfig } from "eslint/config";
 import oharagroup from "eslint-config-oharagroup";
-import tseslint from "typescript-eslint";
 
-export default tseslint.config(
+export default defineConfig(
 	...oharagroup.svelte,
 
 	// add any additional config here

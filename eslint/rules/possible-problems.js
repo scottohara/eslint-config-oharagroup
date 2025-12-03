@@ -56,6 +56,7 @@ export default {
 	"no-sparse-arrays": "error",
 	"no-template-curly-in-string": "error",
 	"no-this-before-super": "error",
+	"no-unassigned-vars": "error",
 	"no-undef": [
 		"error",
 		{
@@ -79,7 +80,7 @@ export default {
 			disallowArithmeticOperators: true,
 		},
 	],
-	"no-unused-private-class-members": "error",
+	"no-unused-private-class-members": "off",
 	"no-unused-vars": "off",
 	"no-use-before-define": "off",
 	"no-useless-assignment": "error",

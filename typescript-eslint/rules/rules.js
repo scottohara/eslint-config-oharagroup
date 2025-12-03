@@ -16,8 +16,8 @@ export default {
 	"@typescript-eslint/consistent-type-assertions": [
 		"error",
 		{
-			assertionStyle: "as",
 			objectLiteralTypeAssertions: "never",
+			arrayLiteralTypeAssertions: "never",
 		},
 	],
 	"@typescript-eslint/consistent-type-definitions": "error",
@@ -55,7 +55,7 @@ export default {
 	"@typescript-eslint/method-signature-style": "error",
 	"@typescript-eslint/naming-convention": "off",
 	"@typescript-eslint/no-array-delete": "error",
-	"@typescript-eslint/no-base-to-string": "error",
+	"@typescript-eslint/no-base-to-string": ["error", { checkUnknown: true }],
 	"@typescript-eslint/no-confusing-non-null-assertion": "error",
 	"@typescript-eslint/no-confusing-void-expression": [
 		"error",
@@ -100,6 +100,7 @@ export default {
 			checksVoidReturn: false,
 		},
 	],
+	"@typescript-eslint/no-misused-spread": "error",
 	"@typescript-eslint/no-mixed-enums": "error",
 	"@typescript-eslint/no-namespace": [
 		"error",
@@ -141,6 +142,7 @@ export default {
 	"@typescript-eslint/no-unnecessary-type-arguments": "error",
 	"@typescript-eslint/no-unnecessary-type-assertion": "error",
 	"@typescript-eslint/no-unnecessary-type-constraint": "error",
+	"@typescript-eslint/no-unnecessary-type-conversion": "error",
 	"@typescript-eslint/no-unnecessary-type-parameters": "error",
 	"@typescript-eslint/no-unsafe-argument": "error",
 	"@typescript-eslint/no-unsafe-assignment": "error",

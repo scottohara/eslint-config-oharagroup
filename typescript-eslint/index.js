@@ -1,9 +1,10 @@
+import { parser, plugin } from "typescript-eslint";
+import { defineConfig } from "eslint/config";
 import deprecated from "./rules/deprecated.js";
 import extension from "./rules/extension.js";
 import rules from "./rules/rules.js";
-import tseslint from "typescript-eslint";
 
-export default tseslint.config(
+export default defineConfig(
 	{
 		name: "oharagroup/typescript/files",
 		// Match any *.ts, *.mts, *.cts files
@@ -12,15 +13,14 @@ export default tseslint.config(
 	{
 		name: "oharagroup/typescript-eslint",
 		plugins: {
-			"@typescript-eslint": tseslint.plugin,
+			"@typescript-eslint": plugin,
 		},
 		languageOptions: {
-			parser: tseslint.parser,
+			parser,
 			parserOptions: {
 				projectService: {
 					allowDefaultProject: ["*.?(m|c)js"],
 				},
-				tsconfigRootDir: ".",
 			},
 		},
 		rules: {
@@ -65,7 +65,6 @@ export default tseslint.config(
 			"@typescript-eslint/consistent-type-assertions": [
 				"error",
 				{
-					assertionStyle: "as",
 					objectLiteralTypeAssertions: "allow",
 				},
 			],

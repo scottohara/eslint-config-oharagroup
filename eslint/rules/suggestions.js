@@ -1,5 +1,5 @@
 export default {
-	"accessor-pairs": "error",
+	"accessor-pairs": ["error", { enforceForTSTypes: true }],
 	"arrow-body-style": [
 		"error",
 		"as-needed",
@@ -35,7 +35,11 @@ export default {
 	],
 	"func-names": "error",
 	"func-style": ["error", "declaration"],
-	"grouped-accessor-pairs": ["error", "getBeforeSet"],
+	"grouped-accessor-pairs": [
+		"error",
+		"getBeforeSet",
+		{ enforceForTSTypes: true },
+	],
 	"guard-for-in": "error",
 	"id-denylist": "error",
 	"id-length": [
@@ -144,7 +148,7 @@ export default {
 		},
 	],
 	"no-shadow": "off",
-	"no-shadow-restricted-names": "error",
+	"no-shadow-restricted-names": ["error", { reportGlobalThis: true }],
 	"no-ternary": "off",
 	"no-throw-literal": "off",
 	"no-undef-init": "error",
@@ -191,6 +195,8 @@ export default {
 			var: "always",
 			let: "always",
 			const: "consecutive",
+			using: "always",
+			awaitUsing: "always",
 			separateRequires: true,
 		},
 	],
@@ -218,6 +224,7 @@ export default {
 	"prefer-rest-params": "error",
 	"prefer-spread": "error",
 	"prefer-template": "error",
+	"preserve-caught-error": "error",
 	radix: ["error", "as-needed"],
 	"require-await": "off",
 	"require-unicode-regexp": ["error", { requireFlag: "v" }],
