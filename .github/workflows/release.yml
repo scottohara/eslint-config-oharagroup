@@ -1,0 +1,39 @@
+---
+name: Release
+on:
+  release:
+    types: published
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency: release
+
+jobs:
+  publish:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+    environment: npm registry
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Install node
+        uses: actions/setup-node@v5
+        with:
+          node-version-file: .tool-versions
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check formattimg
+        run: npm run format:check
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Publish
+        run: npm publish --provenance
