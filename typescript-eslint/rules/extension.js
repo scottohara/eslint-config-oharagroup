@@ -16,7 +16,6 @@ export default {
 	"@typescript-eslint/no-empty-function": "error",
 	"@typescript-eslint/no-implied-eval": "error",
 	"@typescript-eslint/no-invalid-this": "error",
-	"@typescript-eslint/no-loop-func": "error",
 	"@typescript-eslint/no-magic-numbers": [
 		"error",
 		{
@@ -29,7 +28,6 @@ export default {
 		},
 	],
 	"@typescript-eslint/no-redeclare": "error",
-	"@typescript-eslint/no-restricted-imports": "off",
 	"@typescript-eslint/no-shadow": [
 		"error",
 		{

@@ -1,6 +1,8 @@
 export default {
 	"@typescript-eslint/no-empty-interface": "error",
+	"@typescript-eslint/no-loop-func": "error",
 	"@typescript-eslint/no-loss-of-precision": "error",
+	"@typescript-eslint/no-restricted-imports": "off",
 	"@typescript-eslint/no-type-alias": [
 		"error",
 		{
@@ -18,4 +20,5 @@ export default {
 	"@typescript-eslint/no-var-requires": "off",
 	"@typescript-eslint/prefer-ts-expect-error": "error",
 	"@typescript-eslint/sort-type-constituents": "error",
+	"@typescript-eslint/typedef": "off",
 };

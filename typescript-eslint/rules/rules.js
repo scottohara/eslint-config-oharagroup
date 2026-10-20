@@ -84,6 +84,7 @@ export default {
 		},
 	],
 	"@typescript-eslint/no-for-in-array": "error",
+	"@typescript-eslint/no-generated-empty-object-type": "error",
 	"@typescript-eslint/no-import-type-side-effects": "error",
 	"@typescript-eslint/no-inferrable-types": "error",
 	"@typescript-eslint/no-invalid-void-type": "error",
@@ -97,6 +98,9 @@ export default {
 	"@typescript-eslint/no-misused-promises": [
 		"error",
 		{
+			checksConditionals: {
+				flagUnions: "strict",
+			},
 			checksVoidReturn: false,
 		},
 	],
@@ -148,12 +152,14 @@ export default {
 	"@typescript-eslint/no-unsafe-assignment": "error",
 	"@typescript-eslint/no-unsafe-call": "error",
 	"@typescript-eslint/no-unsafe-declaration-merging": "error",
+	"@typescript-eslint/no-unsafe-enum-assignment": "error",
 	"@typescript-eslint/no-unsafe-enum-comparison": "error",
 	"@typescript-eslint/no-unsafe-function-type": "error",
 	"@typescript-eslint/no-unsafe-member-access": "error",
 	"@typescript-eslint/no-unsafe-return": "error",
 	"@typescript-eslint/no-unsafe-type-assertion": "off",
 	"@typescript-eslint/no-unsafe-unary-minus": "error",
+	"@typescript-eslint/no-useless-default-assignment": "error",
 	"@typescript-eslint/no-useless-empty-export": "error",
 	"@typescript-eslint/no-wrapper-object-types": "error",
 	// Not using - conflicts with no-non-null-asssertion
@@ -223,6 +229,7 @@ export default {
 		},
 	],
 	"@typescript-eslint/strict-boolean-expressions": "error",
+	"@typescript-eslint/strict-void-return": "error",
 	"@typescript-eslint/switch-exhaustiveness-check": [
 		"error",
 		{
@@ -236,8 +243,6 @@ export default {
 			lib: "never",
 		},
 	],
-	// Not using
-	"@typescript-eslint/typedef": "off",
 	"@typescript-eslint/unbound-method": [
 		"error",
 		{

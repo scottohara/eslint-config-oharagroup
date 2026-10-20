@@ -1,10 +1,13 @@
 export default {
 	"svelte/infinite-reactive-loop": "error",
+	"svelte/no-bind-value-on-checkable-inputs": "error",
+	"svelte/no-conflicting-module-names": "error",
 	"svelte/no-dom-manipulating": "error",
 	"svelte/no-dupe-else-if-blocks": "error",
 	"svelte/no-dupe-on-directives": "error",
 	"svelte/no-dupe-style-properties": "error",
 	"svelte/no-dupe-use-directives": "error",
+	"svelte/no-nested-style-tag": "error",
 	"svelte/no-not-function-handler": "error",
 	"svelte/no-object-in-text-mustaches": "error",
 	"svelte/no-raw-special-elements": "error",
